@@ -1,0 +1,17 @@
+# build artifacts
+/hookmill
+/dist/
+
+# local queues created by examples and ad-hoc runs
+.hookmill/
+
+# test and coverage output
+*.test
+*.out
+coverage.*
+
+# editor noise
+.idea/
+.vscode/
+*.swp
+.DS_Store

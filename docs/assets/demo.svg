@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="470" viewBox="0 0 760 470" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="760" height="470" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="380" y="27" fill="#8b949e" text-anchor="middle" font-size="12">hookmill — signed webhook delivery from one file on disk</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> hookmill init</text>
+    <text x="24" y="84" fill="#8b949e">initialized .hookmill (schedule 5s,30s,2m,10m,1h,6h,24h — max 8 attempts per message)</text>
+    <text x="24" y="118"><tspan fill="#7ee787">$</tspan> hookmill endpoint add billing --url http://127.0.0.1:8811/hooks</text>
+    <text x="24" y="140">endpoint <tspan fill="#79c0ff">billing</tspan></text>
+    <text x="24" y="162">  secret  <tspan fill="#d2a8ff">hmsec_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</tspan></text>
+    <text x="24" y="196"><tspan fill="#7ee787">$</tspan> hookmill enqueue billing --type invoice.paid --data '{"invoice":"inv_1042"}'</text>
+    <text x="24" y="218">enqueued <tspan fill="#79c0ff">msg_c97eb11956d7be70</tspan> → billing (invoice.paid, 22 bytes, due now)</text>
+    <text x="24" y="252"><tspan fill="#7ee787">$</tspan> hookmill deliver</text>
+    <text x="24" y="274"><tspan fill="#79c0ff">msg_c97eb11956d7be70</tspan>  billing  attempt 1  →  204  <tspan fill="#7ee787">delivered</tspan>  (1ms)</text>
+    <text x="24" y="296" fill="#8b949e">summary: 1 delivered, 0 retried, 0 dead</text>
+    <text x="24" y="330"><tspan fill="#7ee787">$</tspan> hookmill deliver          <tspan fill="#8b949e"># receiver down: retries back off, then dead-letter</tspan></text>
+    <text x="24" y="352"><tspan fill="#79c0ff">msg_7bf28b96a9d33f57</tspan>  billing  attempt 1  →  <tspan fill="#f778ba">error: connection refused</tspan>  retry (due +5s)</text>
+    <text x="24" y="386"><tspan fill="#7ee787">$</tspan> hookmill listen --secret hmsec_… --max 1   <tspan fill="#8b949e"># built-in verifying receiver</tspan></text>
+    <text x="24" y="408">listening on http://127.0.0.1:8811 (verifying hookmill deliveries)</text>
+    <text x="24" y="430"><tspan fill="#7ee787">ok</tspan>   msg_c97eb11956d7be70  invoice.paid  22 bytes</text>
+  </g>
+</svg>
